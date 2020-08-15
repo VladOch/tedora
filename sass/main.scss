@@ -1,0 +1,163 @@
+$color-black-title: #070707;
+$color-black: #2C2C2C;
+$color-silver: #959595;
+$color-blue: #18A0FB;
+$color-orange: #FF3E1D;
+$color-green: #12A46F;
+$color-yellow: #FFD422;
+$color-white: #ffffff;
+$color-nav-title: #040404;
+
+$font-Scada: Scada;
+$font-NotoSans:  Noto Sans Thai UI;
+$font-Sanchez: Sanchez;
+$font-Roboto: Roboto;
+$font-Inter: Inter;
+
+$color-border: 1px solid rgba(224, 224, 224, 0.15);
+$box-shadow-border-0: 0px 1px 2px rgba(0, 0, 0, 0.1);
+$box-shadow-border-1: 0px 2px 3px rgba(0, 0, 0, 0.1);
+$box-shadow-border-2: 0px 2px 7px rgba(0, 0, 0, 0.12);
+$box-shadow-border-3: 0px 10px 23px rgba(0, 0, 0, 0.12);
+
+@mixin text($color,$font-size, $font-family, $font-weight: 400) {
+    color: $color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-family: $font-family;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+ul {
+    list-style: none;
+}
+/* header */
+header {
+    display: flex;
+    flex-flow: column wrap;
+   
+    .contacts {
+        display: flex;
+        justify-content: space-between;
+        max-height: 40px;
+        background-color: $color-black-title;
+        padding: 5px 30px;
+        p {
+            display: inline-block;
+            @include text($color-white,$font-Roboto, 20px);
+        }
+
+        .img-wrapper {
+            display: inline-block;
+        }
+        .contacts__info{
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .contacts__social {
+            width: 22%;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 30px;
+        }
+    }
+    .navigation {
+        height: 90px;
+        background-color: $color-white;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        #logo {
+            height: 100%;
+            width: auto;
+            max-height: 90px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            width: 55%;
+            align-items: center;
+            padding: 0 15% 0 0;
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                
+            }
+            li:hover {
+                color:$color-green;
+            }
+            li {
+                @include text($color-nav-title, 18px, $font-NotoSans, 900);
+                transition: color .3s;
+            }
+        }
+    }
+}
+main{
+    .img-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 340px;
+        background: url("/tedora/img/1528\ \(2\)\ 2.png") no-repeat;
+        
+    }   
+    .img-wrapper img{
+        max-width: 100%;
+        min-height: 340px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        display: block;
+    }
+    // background-img
+    .welcome {
+        padding: 135px 55px;
+    }
+    .welcome__title {
+        @include text($color-green, 64px, $font-NotoSans, 900)
+    }
+    .welcome__subtitle {
+        @include text(#000000, 52px, $font-NotoSans, 900);
+        padding: 10px 0 85px 0;
+    }
+    .welcome__button {
+        width: 280px;
+        height: 52px;
+        @include text($color-white, 36px, $font-NotoSans, 900);
+        background-color: $color-green;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    //services
+    .services {
+        background-color: rgba(242, 242, 242, 0.3);
+        padding: 50px 6%;
+        .services_list {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align:center;
+            grid-gap: 50px;
+        }
+        .services__title{
+            padding: 20px 0 10px 0;
+            @include text(#000000, 28px, $font-Scada, bold)
+        }
+        .services__subtitle{
+            @include text(#000000, 16px, $font-Scada);
+            padding: 0 30px;
+        }
+    }
+}
