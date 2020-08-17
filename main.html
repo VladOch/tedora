@@ -37,6 +37,15 @@
         </div>
         <div class="navigation">
             <div id="logo-wrapper"><a href="#"><img src="./img/57e3a980-f8a3-433b-a604-5bd0f3c7dce7 2.png" alt="logo" id="logo"></a></div>
+            <div class="adaptive-gamburger" id="adaptive-gamburger"><img src="./img/menu.svg" alt="menu"></div>
+            <ul class="adaptive-menu">
+                <a href="#" class="adaptive-menu__item"><li>home</li></a>
+                <a href="#" class="adaptive-menu__item"><li>about us</li></a>
+                <a href="#" class="adaptive-menu__item"><li>services</li></a>
+                <a href="#" class="adaptive-menu__item"><li>gallery</li></a>
+                <a href="#" class="adaptive-menu__item"><li>contact</li></a>
+            </ul>
+            <div class="adaptive-empty"></div>
             <ul class="menu">
                 <a href="#" class="menu__link">
                     <li>home</li>
@@ -58,14 +67,15 @@
     </header>
     <main>
         <div class="img-wrapper">
-            <!-- <img src="./img/1528 (2) 2.png" alt="background-img"> -->
+            <img src="./img/1528 (2) 2.png" alt="background-img">
+            
             <div class="welcome">
                 <div class="welcome__title">WELCOME TO OUR</div>
                 <div class="welcome__subtitle">Lorem ipsum dolor sit amet, consecteur</div>
                 <button class="welcome__button">read more</button>
             </div>
         </div>
-        
+        <div class="empty"></div>
         <div class="services">
             <ul class="services_list">
                 <li>
@@ -103,18 +113,241 @@
             </ul>
         </div>
         <div class="about-us">
-            <div class="about-us__title">ABOUT US</div>
-            <div class="img-wrapper"><img src="./img/522 (2) 1.png" alt=""></div>
-            <div class="about-us__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</div>
-            <div class="about-us__who-we-are__title">WHO WE ARE</div>
+            <div class="about-us__title"><span>ABOUT US</span></div>
+            <div class="flex-revers">
+                <img src="./img/about-us.png" alt="about-us">
+                <div class="about-us__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</div>
+            </div>
+            <div class="about-us__who-we-are__title"><span>WHO</span> WE ARE</div>
             <div class="about-us__who-we-are__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered
                 alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
                 If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
                 embarrassing hidden in the middle of text.</div>
-            <div class="about-us__button">contact now</div>
+            <button class="about-us__button">contact now</button>
+        </div>
+        <div class="our-awards">
+            <h1>our awards</h1>
+            <div class="brands-img">
+                <img src="./img/Houzz_logo_logotype 1 (1).png" alt="Houzz_logo">
+                <img src="./img/trofeo (1) 1.png" alt="trofeo">
+                <img src="./img/small_logo 1.png" alt="small_logo">
+            </div>
+        </div>
+        <div class="what-we-offer">
+            <h1 class="what-we-offer__title">WHA<span>T WE O</span>FFER</h1>
+            <ul class="what-we-offer__offer-list">
+                <li class="what-we-offer__offer-item">
+                    <img src="./img/bulding.png" alt="">
+                    <h2>BUILDING CONSTRUCTION</h2>
+                    <p>Lorem Ipsum is simply dummy text of the print-
+                        ing and typesetting industry. Lorem Ipsum has 
+                        been the industry's standard dummy</p>
+                </li>
+                <li class="what-we-offer__offer-item">
+                    <img src="./img/pleaning.png" alt="">
+                    <h2>PROJECT PLANNING</h2>
+                    <p>Lorem Ipsum is simply dummy text of the print-
+                        ing and typesetting industry. Lorem Ipsum has 
+                        been the industry's standard dummy</p>
+                </li>
+                <li class="what-we-offer__offer-item">
+                    <img src="./img/renovation.png" alt="">
+                    <h2>HOUSE RENOVATION</h2>
+                    <p>Lorem Ipsum is simply dummy text of the print-
+                        ing and typesetting industry. Lorem Ipsum has 
+                        been the industry's standard dummy</p>
+                </li>
+            </ul>
+        </div>
+        <div class="our-features">
+            <div class="our-features__title">our<span> feat</span>ures</div>
+            <div class="our-features__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</div>
+            <div class="our-features__content content">  
+                    <div class="content__find-price find-price">
+                        <h1>Find out the price of your home</h1>
+                        <h3>We do not pass on your data to third parties.</h3>
+                        <form action="#" class="find-price__form">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="Placeholder text" id="name">
+                            <i></i>
+                            <label for="email">E-mail</label>
+                            <input type="text" placeholder="Placeholder text" id="email">
+                            <i></i>
+                            <div class="checkbox">
+                                <input type="checkbox" name="passdata" id="passdata"><label for="passdata">We do not pass on your data to</label>
+                            </div>
+                            <button>Send</button>
+                        </form>
+                        <p class="pathdata">We do not pass on your data to third parties</p>
+                    </div>
+                    <div class="content__choose-us choose-us">
+                        <h1 class="choose-us__title"><span>WHY CHO</span>OSE US</h1>
+                        <h5 class="choose-us__subtitle">There are many variations of passages of Lorem Ipsum available.</h5>
+                        <ul class="choose-us__list">
+                            <li class="choose-us__item">
+                                <img src="./img/llave-inglesa 1.png" alt="">
+                                <h1>30+ YEARS OF EXPERIENCE</h1>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-
+                                    try. Lorem Ipsum has been the industry's standard dummy text ever since 
+                                    the 1500s</p>
+                            </li>
+                            <li class="choose-us__item">
+                                <img src="./img/velocidad 1.png" alt="">
+                                <div>
+                                    <h1>QUALIFIED EXPERTS</h1>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-
+                                        try. Lorem Ipsum has been the industry's standard dummy text ever since
+                                         the 1500s</p>
+                                </div>
+                                
+                            </li>
+                            <li class="choose-us__item">
+                                <img src="./img/trabajo-en-equipo 1.png" alt="">
+                                <h1>BEST CUSTOMER SERVICES</h1>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-
+                                    try. Lorem Ipsum has been the industry's standard dummy text ever since
+                                     the 1500s</p>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+
+        </div>
+        <div class="our-services">
+            <h1 class="our-services__title">OU<span>R SERVI</span>CES</h1>
+            <h2 class="our-services__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</h2>
+            <ul class="our-services__navigation-list">
+                <li>
+                    <h3>ALL</h3>
+                </li>
+                <li>
+                    <h3>ARCHITECTURE</h3>
+                </li>
+                <li>
+                    <h3>CONSTRUCTION</h3>
+                </li>
+                <li>
+                    <h3>DESIGN</h3>
+                </li>
+                <li>
+                    <h3>PAINTING</h3>
+                </li>
+            </ul>
+            <div class="our-services__img-content">
+                <img src="./img/1.png" alt="1">
+                <img src="./img/2.png" alt="2">
+                <img src="./img/3.png" alt="3">
+                <img src="./img/4.png" alt="4">
+                <img src="./img/5.png" alt="5">
+                <img src="./img/6.png" alt="6">
+            </div>
+        </div>
+        <div class="our-achevment">
+            <div class="our-achevment__title">OUR <span>ACHIEVM</span>ENTS</div>
+            <div class="our-achevment__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</div>
+            <ul class="our-achevment__list">
+                <li class="our-achevment__item">
+                    <img src="./img/navegador 1.png" alt="">
+                    <h1>800</h1>
+                    <h2>PROJECT COMPLETED</h2>
+                </li>
+                <li class="our-achevment__item">
+                    <img src="./img/carrera111 (1) 1 (1).png" alt="">
+                    <h1>300</h1>
+                    <h2>HOUSE RENOVATIONS</h2>
+                </li>
+                <li class="our-achevment__item">
+                    <img src="./img/usuario 1.png" alt="">
+                    <h1>1390</h1>
+                    <h2>WORKERS EMPLOYED</h2>
+                </li>
+                <li class="our-achevment__item">
+                    <img src="./img/taza 1.png" alt="">
+                    <h1>125</h1>
+                    <h2>AWARDS WON</h2>
+                </li>
+            </ul>
+        </div>
+        <div class="featured-works">
+            <h1 class="featured-works__title">OUR FE<span>ATURED</span> <strong>WORKS</strong></h1>
+            <h2 class="featured-works__subtitle">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</h2>
+            <div class="featured-works__img-content">
+                <img src="./img/11.png" alt="1">
+                <img src="./img/12.png" alt="2">
+                <img src="./img/13.png" alt="3">
+                <img src="./img/14.png" alt="4">
+                <img src="./img/15.png" alt="5">
+                <img src="./img/16.png" alt="6">
+                <img src="./img/17.png" alt="7">
+                <img src="./img/18.png" alt="8">
+            </div>
+        </div>
+        <div class="book-now">
+            <div class="book-now__content">
+                <h1>Booking now if you need build your dream home.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <button>BOOK NOW</button>
         </div>
     </main>
+    <footer>
+        
+        <div class="our-company">
+            <h1>ABOUT OUR COMPANY</h1>
+            <img src="./img/57e3a980-f8a3-433b-a604-5bd0f3c7dce7 2.png" alt="logo">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+ 
+                elit, sed do eiusmod tempor incididunt ut labore et
+                
+                 dolore magna aliqua.</p>
+        </div>
+        <div class="contact-us">
+            <h1>CONTACT US</h1>
+            <p>Have questions, comments or just want to
+                say hello:</p>
+            <ul>
+                <li>
+                    <img src="./img/mail.png" alt="mail">
+                    <p>tedora@gmail.com</p>
+                </li>
+                <li>
+                    <img src="./img/phone.png" alt="">
+                    <p>+1686098632</p>
+                </li>
+                <li>
+                    <img src="./img/alfiler 1.png" alt="">
+                    <p>New York # 10 Dark 1</p>
+                </li>
+            </ul>
+        </div>
+            <div class="social-img">
+                <a href="#"><img src="./img/facebook (2) 1.svg" alt=""></a>
+                <a href="#"><img src="./img/whatsapp (2) 1.svg" alt=""></a>
+                <a href="#"><img src="./img/instagram-bosquejado 1.svg" alt=""></a>
+                <a href="#"><img src="./img/telegramm 1.svg" alt=""></a>
+            </div>
+            <div class="partners">
+                <a href="#"><img src="./img/Houzz_logo_logotype 1 (1).png" alt=""></a>
+                <a href="#"><img src="./img/small_logo 1.png" alt=""></a>
+            </div>
+    </footer>
 
-    <script src="./main.js"></script>
+    <script>
+        const button = document.getElementById('adaptive-gamburger');
+        const menu = document.querySelector('ul.adaptive-menu');
+        const empty = document.querySelector('.adaptive-empty');
+        console.log(button)
+        function addMenu() {
+            empty.classList.add('active-empty')
+            menu.classList.add('active')
+            
+        }
+        function removeMenu() {
+            empty.classList.remove('active-empty')
+            menu.classList.remove('active')
+        }
+        empty.addEventListener('click',removeMenu)
+        button.addEventListener('click',addMenu)
+    </script>
 </body>
 </html>

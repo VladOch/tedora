@@ -1,15 +1,15 @@
 $color-black-title: #070707;
-$color-black: #2C2C2C;
+$color-black: #2c2c2c;
 $color-silver: #959595;
-$color-blue: #18A0FB;
-$color-orange: #FF3E1D;
-$color-green: #12A46F;
-$color-yellow: #FFD422;
+$color-blue: #18a0fb;
+$color-orange: #ff3e1d;
+$color-green: #12a46f;
+$color-yellow: #ffd422;
 $color-white: #ffffff;
 $color-nav-title: #040404;
 
 $font-Scada: Scada;
-$font-NotoSans:  Noto Sans Thai UI;
+$font-NotoSans: Noto Sans Thai UI;
 $font-Sanchez: Sanchez;
 $font-Roboto: Roboto;
 $font-Inter: Inter;
@@ -20,144 +20,1069 @@ $box-shadow-border-1: 0px 2px 3px rgba(0, 0, 0, 0.1);
 $box-shadow-border-2: 0px 2px 7px rgba(0, 0, 0, 0.12);
 $box-shadow-border-3: 0px 10px 23px rgba(0, 0, 0, 0.12);
 
-@mixin text($color,$font-size, $font-family, $font-weight: 400) {
-    color: $color;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    font-family: $font-family;
+@mixin text($color, $font-size, $font-family, $font-weight: 400) {
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-family: $font-family;
+}
+@mixin bottom-border($size-border, $color-border, $padding-bottom: 10px) {
+  padding-bottom: $padding-bottom;
+  border-bottom: $size-border solid $color-border;
+}
+@mixin green-button($width, $height, $font-size) {
+  width: $width;
+  height: $height;
+  @include text($color-white, $font-size, $font-NotoSans, 900);
+  background-color: $color-green;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-html, body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 ul {
-    list-style: none;
+  list-style: none;
 }
 /* header */
 header {
+  display: flex;
+  flex-flow: column wrap;
+
+  .contacts {
+    display: flex;
+    justify-content: space-between;
+    max-height: 40px;
+    background-color: $color-black-title;
+    padding: 5px 30px;
+    p {
+      display: inline-block;
+      @include text($color-white, $font-Roboto, 20px);
+    }
+
+    .img-wrapper {
+      display: inline-block;
+    }
+    .contacts__info {
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .contacts__social {
+      width: 22%;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 30px;
+    }
+  }
+  .navigation {
+    height: 90px;
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    #logo {
+      height: 100%;
+      width: auto;
+      max-height: 90px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      width: 55%;
+      align-items: center;
+      padding: 0 15% 0 0;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      li:hover {
+        color: $color-green;
+      }
+      li {
+        @include text($color-nav-title, 18px, $font-NotoSans, 900);
+        transition: color 0.3s;
+      }
+    }
+  }
+}
+main {
+  .img-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .img-wrapper img {
+    width: 100%;
+    min-height: 750px;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    display: block;
+  }
+  // background-img
+  .welcome {
+    padding: 135px 55px;
+  }
+  .welcome__title {
+    @include text($color-green, 64px, $font-NotoSans, 900);
+  }
+  .welcome__subtitle {
+    @include text(#000000, 52px, $font-NotoSans, 900);
+    padding: 10px 0 85px 0;
+  }
+  .welcome__button {
+    @include green-button(280px, 52px, 36px);
+  }
+  .empty {
+    height: 200px;
+  }
+  //services
+  .services {
+    background-color: rgba(242, 242, 242, 0.3);
+    padding: 50px 6%;
+    .services_list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      grid-gap: 50px;
+    }
+    .services__title {
+      padding: 20px 0 10px 0;
+      @include text(#000000, 28px, $font-Scada, bold);
+    }
+    .services__subtitle {
+      @include text(#000000, 16px, $font-Scada);
+      padding: 0 30px;
+    }
+  }
+  // about-us
+  .about-us {
+    padding: 40px 6%;
+    .about-us__title,
+    .about-us__subtitle {
+      text-align: center;
+    }
+    [alt="about-us"] {
+      max-height: 100%;
+      min-height: 340px;
+      width: auto;
+      object-fit: cover;
+      float: right;
+    }
+
+    .about-us__title {
+      @include text(#000000, 28px, $font-Scada, bold);
+      span {
+        @include bottom-border(8px, $color-green);
+      }
+    }
+    .about-us__subtitle {
+      @include text(#000000, 22px, $font-Scada, normal);
+      padding: 30px 0 0 15%;
+    }
+    .about-us__who-we-are__title {
+      padding: 45px 0px;
+      @include text(#000000, 42px, $font-Scada, bold);
+      span {
+        @include bottom-border(5px, #000000);
+      }
+    }
+    .about-us__who-we-are__text {
+      padding: 0 40% 45px 0;
+      @include text(#000000, 18px, $font-Scada);
+    }
+    .about-us__button {
+      @include green-button(240px, 50px, 28px);
+      text-align: center;
+    }
+  }
+  .our-awards {
+    padding: 30px;
+    background: #f0f0f0;
+    h1 {
+      @include text(#58927d, 42px, $font-Scada, bold);
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .brands-img {
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  .what-we-offer {
+    padding: 70px;
+    text-align: center;
+    background: rgba(65, 185, 142, 0.25);
+    h1.what-we-offer__title {
+      @include text(#000000, 28px, $font-Roboto, 900);
+      span {
+        @include bottom-border(5px, white);
+      }
+    }
+    .what-we-offer__offer-list {
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 60px;
+    }
+    .what-we-offer__offer-item {
+      background: white;
+      img {
+        width: 100%;
+      }
+      h2 {
+        padding: 20px 0;
+        @include text(#000000, 22px, $font-Roboto, 900);
+      }
+      p {
+        padding: 0 20px 20px 20px;
+        @include text(#000000, 16px, $font-Roboto);
+      }
+    }
+  }
+  .our-features {
+    padding: 4%;
+    .our-features__title,
+    .our-features__subtitle {
+      text-align: center;
+    }
+    .our-features__title {
+      @include text(#000000, 26px, $font-Roboto, 900);
+      text-transform: uppercase;
+      padding-bottom: 40px;
+      span {
+        @include bottom-border(5px, $color-green, 15px);
+      }
+    }
+    .our-features__subtitle {
+      @include text(#000000, 20px, $font-Roboto, 300);
+    }
+
+    .content {
+      padding: 40px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+      .find-price {
+        h1 {
+          @include text(#000000, 40px, $font-Roboto, 900);
+        }
+        h3 {
+          @include text(#000000, 28px, $font-Roboto, normal);
+          padding-bottom: 30px;
+        }
+        .find-price__form {
+          background: rgba(104, 143, 129, 0.63);
+          box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.25);
+          min-height: 325px;
+          width: 450px;
+          padding: 30px 50px;
+          display: flex;
+          flex-flow: column wrap;
+          label {
+            @include text(white, 14px, $font-Inter, 500);
+            padding: 4px 0px;
+          }
+          input {
+            height: 50px;
+            background: #99aea6;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+            padding-left: 10px;
+          }
+          input::placeholder {
+            color: white;
+          }
+          i {
+            @include bottom-border(2px, #000000, 20px);
+          }
+          .checkbox {
+            display: flex;
+            label {
+              align-self: center;
+              padding: 20px;
+              color: #555770;
+            }
+          }
+          button {
+            align-self: flex-end;
+            width: 100px;
+            height: 50px;
+            @include text($color-white, 22px, $font-Roboto, 400);
+            background-color: $color-blue;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+        p.pathdata {
+          padding-top: 20px;
+          @include text(#555770, 16px, $font-Roboto, normal);
+        }
+      }
+      .choose-us {
+        .choose-us__title {
+          span {
+            @include bottom-border(8px, #000000, 15px);
+          }
+          @include text(#000000, 40px, $font-Roboto, 900);
+          padding-bottom: 40px;
+        }
+        .choose-us__subtitle {
+          @include text(#000000, 20px, $font-Roboto, 200);
+          padding-bottom: 40px;
+        }
+        .choose-us__list {
+        }
+        .choose-us__item {
+          padding-bottom: 45px;
+          .img-wrapper {
+            float: left;
+            width: 100%;
+            max-width: 50px;
+            height: auto;
+          }
+          img {
+            width: 75px;
+            float: left;
+            padding: 0 25px 70px 0;
+          }
+          h1 {
+            @include text(#000000, 28px, $font-Roboto, 900);
+            padding-bottom: 15px;
+          }
+          p {
+            @include text(#000000, 20px, $font-Roboto, 400);
+          }
+        }
+      }
+    }
+  }
+  .our-services {
+    padding: 4%;
+    background: rgba(0, 0, 0, 0.05);
+    .our-services__title {
+      padding-bottom: 30px;
+      text-align: center;
+      @include text(#000000, 42px, $font-NotoSans, 900);
+      span {
+        @include bottom-border(8px, $color-green, 15px);
+      }
+    }
+    .our-services__subtitle {
+      padding-top: 30px;
+      text-align: center;
+      @include text(#000000, 20px, $font-NotoSans, 200);
+    }
+    .our-services__navigation-list {
+      display: flex;
+      justify-content: space-around;
+      flex-flow: row wrap;
+      padding: 3% 7%;
+      li {
+        @include text(#000000, 20px, $font-NotoSans, 900);
+      }
+    }
+    .our-services__img-content {
+      padding: 5% 7%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      img {
+        width: 100%;
+        object-fit: fill;
+        overflow: hidden;
+      }
+    }
+  }
+  .our-achevment {
+    background: rgba(48, 42, 42, 0.8);
+    text-align: center;
+    padding: 35px 0 60px 0;
+    color: white;
+    .our-achevment__title {
+      @include text(white, 26px, $font-NotoSans, 900);
+      span {
+        @include bottom-border(5px, $color-green, 15px);
+      }
+      padding-bottom: 30px;
+    }
+    .our-achevment__subtitle {
+      @include text(white, 20px, $font-NotoSans, 300);
+      padding-bottom: 60px;
+    }
+    .our-achevment__list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .our-achevment__item {
+      padding: 15px 30px 0 30px;
+      border-left: 8px solid white;
+      & * {
+        padding-bottom: 15px;
+      }
+      &:first-child {
+        border-left: none;
+      }
+      h1 {
+        @include text($color-green, 26px, $font-NotoSans, 800);
+      }
+    }
+  }
+
+  .featured-works {
+    padding: 2% 4% 4% 4%;
+    background: white;
+    .featured-works__title {
+      padding-bottom: 30px;
+      text-align: center;
+      @include text(#000000, 42px, $font-NotoSans, 900);
+      span {
+        @include bottom-border(8px, $color-green, 15px);
+      }
+    }
+    .featured-works__subtitle {
+      padding-top: 30px;
+      text-align: center;
+      @include text(#000000, 20px, $font-NotoSans, 200);
+    }
+    .featured-works__navigation-list {
+      display: flex;
+      justify-content: space-around;
+      padding: 3% 7%;
+      li {
+        @include text(#000000, 20px, $font-NotoSans, 900);
+      }
+    }
+    .featured-works__img-content {
+      padding: 5% 7%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      img {
+        width: 100%;
+        object-fit: fill;
+        overflow: hidden;
+      }
+    }
+  }
+  .book-now {
+    padding: 4%;
+    background: rgba(65, 185, 142, 0.53);
+    display: flex;
+    justify-content: space-around;
+    .book-now__content {
+      h1 {
+        @include text(#000000, 26px, $font-NotoSans, 900);
+      }
+      p {
+        padding-top: 20px;
+        @include text(#000000, 16px, $font-NotoSans, 300);
+      }
+    }
+    button {
+      width: 260px;
+      height: 75px;
+      @include text($color-white, 38px, $font-Roboto, 900);
+      background-color: rgba(0, 0, 0, 0.54);
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+footer {
+  padding: 5%;
+  background: #e0e0e0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr auto;
+
+  grid-gap: 30px;
+  @include text(#000000, 16px, $font-NotoSans, normal);
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+  h1 {
+    @include text(#000000, 26px, $font-NotoSans, 900);
+  }
+  ul {
+    padding-top: 25px;
+    li {
+      padding-bottom: 25px;
+    }
+  }
+
+  .our-company {
     display: flex;
     flex-flow: column wrap;
-   
-    .contacts {
-        display: flex;
-        justify-content: space-between;
-        max-height: 40px;
-        background-color: $color-black-title;
-        padding: 5px 30px;
-        p {
-            display: inline-block;
-            @include text($color-white,$font-Roboto, 20px);
-        }
 
-        .img-wrapper {
-            display: inline-block;
-        }
-        .contacts__info{
-            width: 40%;
-            display: flex;
-            justify-content: space-between;
-        }
-        .contacts__social {
-            width: 22%;
-            display: flex;
-            justify-content: space-between;
-            padding-right: 30px;
-        }
+    img {
+      align-self: center;
+      width: 260px;
+      height: 150px;
+    }
+    p {
+      line-height: 36px;
+    }
+  }
+  .contact-us {
+    grid-column: 3/5;
+    p {
+      padding-right: 30px;
+    }
+    ul {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+      li img {
+        padding-right: 25px;
+        float: left;
+      }
+      li p {
+        padding-top: 7px;
+      }
+    }
+  }
+  .social-img {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      height: 70px;
+    }
+  }
+  .partners {
+    grid-column: 3/5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.adaptive-gamburger {
+  display: none;
+  height: 55px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.adaptive-menu {
+  position: fixed;
+  height: 70vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  z-index: 9999;
+  padding: 10%;
+  transform: translate(100vw);
+  transition: transform 0.3s ease-in;
+  
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+  }
+  
+  a {
+    display: block;
+    text-decoration: none;
+    padding-bottom: 50px;
+    @include text(white, 30px, $font-NotoSans, 900);
+    text-transform: uppercase;
+  }
+  .adaptive-menu__item:last-child{
+    padding-bottom: 0px;
+
+  }
+}
+.adaptive-empty {
+  background: #000;
+  display: none;
+  height: 40vh;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  transition: display 0.3s ease-in;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.3;
+}
+.active-empty {
+  display: block;
+}
+.active {
+  transform: translate(0) !important;
+}
+.flex-revers {
+  display: block;
+}
+
+@media (max-width: 1275px) {
+  header {
+    .contacts {
+      .contacts__info {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  header {
+    .contacts {
+      .contacts__info {
+        width: 70%;
+      }
+      .contacts__social {
+        width: 30%;
+      }
     }
     .navigation {
-        height: 90px;
-        background-color: $color-white;
+      padding: 0 10px 0 10px;
+      .menu {
+        width: 80%;
+      }
+    }
+  }
+  main {
+    .services {
+      padding: 50px 4%;
+      .services_list {
+        grid-gap: 10px;
+      }
+    }
+    .about-us {
+      [alt="about-us"] {
+        float: none;
+      }
+      .about-us__subtitle {
+        padding: 0;
+      }
+      .flex-revers {
+        padding-top: 50px;
         display: flex;
-        justify-content: space-between;
-        padding: 0 30px;
-        #logo {
-            height: 100%;
-            width: auto;
-            max-height: 90px;
+        flex-flow: column-reverse wrap;
+        img {
+          align-self: center;
         }
-        .menu {
-            display: flex;
-            justify-content: space-between;
-            width: 55%;
-            align-items: center;
-            padding: 0 15% 0 0;
-            a {
-                text-decoration: none;
-                text-transform: uppercase;
-                
+      }
+      .about-us__subtitle {
+        padding-bottom: 15px;
+      }
+      .about-us__who-we-are__text {
+        padding: 0 30% 45px 0;
+      }
+    }
+    .what-we-offer {
+      padding: 35px;
+      .what-we-offer__offer-list {
+        grid-gap: 30px;
+      }
+    }
+    .our-features {
+      padding: 4% 2%;
+    }
+    .book-now {
+      flex-flow: column;
+      text-align: center;
+      p {
+        padding-bottom: 15px;
+      }
+      button {
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  header {
+    .contacts {
+      padding: 5px 10px;
+    }
+    .navigation {
+      .menu {
+        width: 100%;
+      }
+    }
+  }
+  main {
+    .services {
+      .services_list {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+    }
+    .about-us {
+      .about-us__who-we-are__text {
+        padding: 0 20% 45px 0;
+      }
+    }
+
+    .what-we-offer {
+      padding: 60px;
+      .what-we-offer__offer-list {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+      }
+    }
+    .our-features {
+      .content {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .content__find-price h1,
+      h3 {
+        text-align: center;
+      }
+      .find-price {
+        display: flex;
+        flex-flow: column;
+      }
+      .find-price__form {
+        align-self: center;
+      }
+      .pathdata {
+        text-align: center;
+      }
+    }
+    .our-services {
+      padding: 2%;
+      .our-services__navigation-list {
+        padding: 3% 2%;
+      }
+    }
+    .our-achevment {
+      .our-achevment__subtitle {
+        @include text(white, 16px, $font-NotoSans, 300);
+      }
+      .our-achevment__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        .our-achevment__item {
+          border: none;
+        }
+      }
+    }
+    .book-now {
+      button {
+        width: 200px;
+        height: 50px;
+        @include text($color-white, 30px, $font-Roboto, 900);
+      }
+    }
+  }
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr auto;
+    grid-gap: 15px;
+    .our-company {
+      grid-column: 1/5;
+      text-align: center;
+    }
+    .contact-us {
+      grid-column: 1/5;
+      text-align: center;
+      ul {
+        li img {
+          padding-right: 25px;
+          float: none;
+        }
+      }
+    }
+
+    .social-img {
+      grid-column: 1/5;
+      grid-row: 2/3;
+    }
+
+    .partners {
+      grid-column: 1/4;
+      grid-row: 4/5;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    .contacts {
+      display: none;
+    }
+    .navigation {
+      padding: 0 30px;
+      background: rgba(65, 185, 142, 0.18);
+      .menu {
+        display: none;
+      }
+      .adaptive-gamburger {
+        display: block;
+      }
+    }
+  }
+  main {
+    .welcome {
+      padding: 100px 15px;
+      text-align: center;
+      .welcome__title {
+        @include text($color-green, 58px, $font-NotoSans, 900);
+      }
+      .welcome__subtitle {
+        @include text(#000000, 46px, $font-NotoSans, 900);
+        padding: 10px 0 85px 0;
+      }
+    }
+    .about-us {
+      padding: 40px 4%;
+      .about-us__who-we-are__text {
+        padding: 0 10% 45px 0;
+      }
+    }
+    .our-awards {
+      h1 {
+        @include text(#58927d, 32px, $font-Scada, bold);
+      }
+      .brands-img {
+        width: 100%;
+        height: auto;
+      }
+      padding: 15px;
+    }
+    .what-we-offer {
+      padding: 30px;
+      .what-we-offer__offer-list {
+        grid-gap: 30px;
+      }
+    }
+    .our-services {
+      .our-services__title {
+        @include text(#000000, 32px, $font-NotoSans, 900);
+      }
+      .our-services__subtitle {
+        @include text(#000000, 16px, $font-NotoSans, 200);
+      }
+      .our-services__navigation-list {
+      }
+      padding: 2%;
+      .our-services__navigation-list {
+        padding: 3% 0%;
+        li {
+          @include text(#000000, 14px, $font-NotoSans, 900);
+        }
+      }
+      .our-services__img-content {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+    }
+    .featured-works {
+      .featured-works__title {
+        @include text(#000000, 32px, $font-NotoSans, 900);
+      }
+      .featured-works__subtitle {
+        @include text(#000000, 16px, $font-NotoSans, 200);
+      }
+      .featured-works__img-content {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+  }
+  footer {
+    .social-img {
+      img {
+        height: 50px;
+        width: auto;
+      }
+    }
+    .partners {
+      img {
+        width: 150px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  main {
+    .welcome {
+      padding: 80px 15px;
+
+      .welcome__title {
+        @include text($color-green, 46px, $font-NotoSans, 900);
+      }
+      .welcome__subtitle {
+        @include text(#000000, 38px, $font-NotoSans, 900);
+        padding: 10px 0 85px 0;
+      }
+    }
+    .services {
+      padding: 120px 3%;
+      .services_list {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .about-us {
+      padding: 40px 2%;
+      display: flex;
+      flex-flow: column;
+      .about-us__who-we-are__text {
+        padding: 0 0 45px 0;
+      }
+      .about-us__button {
+        align-self: center;
+      }
+    }
+    .what-we-offer {
+      padding: 30px 10px 30px 10px;
+      .what-we-offer__offer-list {
+        grid-gap: 10px;
+      }
+    }
+    .our-awards {
+      .brands-img {
+          padding: 0;
+        [alt="Houzz_logo"],
+        [alt="small_logo"] {
+          width: 150px;
+        }
+        [alt="trofeo"] {
+        }
+      }
+    }
+    .our-features {
+      .choose-us {
+        .choose-us__list {
+          .choose-us__item {
+            h1 {
+              @include text(#000000, 22px, $font-Roboto, 900);
             }
-            li:hover {
-                color:$color-green;
+            p {
+              @include text(#000000, 16px, $font-Roboto, 400);
             }
-            li {
-                @include text($color-nav-title, 18px, $font-NotoSans, 900);
-                transition: color .3s;
+          }
+        }
+      }
+      .content {
+        .find-price {
+          .find-price__form {
+            width: 100%;
+            padding: 20px 30px;
+          }
+        }
+      }
+    }
+    .our-achevment {
+      .our-achevment__item {
+        padding: 10px 15px 0 15px;
+        border-left: 8px solid white;
+        & * {
+          padding-bottom: 15px;
+        }
+        &:first-child {
+          border-left: none;
+        }
+        h1 {
+          @include text($color-green, 18px, $font-NotoSans, 800);
+        }
+        h2 {
+          @include text(white, 22px, $font-NotoSans, 800);
+        }
+      }
+    }
+    .featured-works {
+      .featured-works__title {
+        @include text(#000000, 26px, $font-NotoSans, 900);
+      }
+    }
+    .our-features {
+        .content {
+            .choose-us {
+                .choose-us__title {
+                    @include text(#000000, 30px, $font-Roboto, 900);
+                }
+            }
+            .find-price {
+                h1 {
+                  @include text(#000000, 30px, $font-Roboto, 900);
+                }
+                h3 {
+                    @include text(#000000, 24px, $font-Roboto, normal);
+                    padding-bottom: 30px;
+                  }
             }
         }
+        
+  }
+  footer {
+    .social-img {
+      img {
+        height: 35px;
+      }
+    }
+    .contact-us p {
+        padding-right: 0;
     }
 }
-main{
-    .img-wrapper {
-        position: relative;
-        width: 100%;
-        min-height: 340px;
-        background: url("/tedora/img/1528\ \(2\)\ 2.png") no-repeat;
+}
+
         
-    }   
-    .img-wrapper img{
-        max-width: 100%;
-        min-height: 340px;
-        height: auto;
-        object-fit: cover;
-        position: absolute;
-        z-index: -1;
-        display: block;
-    }
-    // background-img
-    .welcome {
-        padding: 135px 55px;
-    }
-    .welcome__title {
-        @include text($color-green, 64px, $font-NotoSans, 900)
-    }
-    .welcome__subtitle {
-        @include text(#000000, 52px, $font-NotoSans, 900);
-        padding: 10px 0 85px 0;
-    }
-    .welcome__button {
-        width: 280px;
-        height: 52px;
-        @include text($color-white, 36px, $font-NotoSans, 900);
-        background-color: $color-green;
-        text-transform: uppercase;
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
-    //services
-    .services {
-        background-color: rgba(242, 242, 242, 0.3);
-        padding: 50px 6%;
-        .services_list {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            text-align:center;
-            grid-gap: 50px;
+}   
+@media (max-width: 340px) {
+    main { 
+        .our-awards {
+            padding: 15px 0;
+           .brands-img {
+            [alt="Houzz_logo"],
+            [alt="small_logo"] {
+              width: 100px;
+              height: 60px;
+            }
+           }
         }
-        .services__title{
-            padding: 20px 0 10px 0;
-            @include text(#000000, 28px, $font-Scada, bold)
+        .our-achevment {
+            .our-achevment__list {
+                .our-achevment__item {
+                    padding: 10px 5px 0 5px;
+                }
+            }
         }
-        .services__subtitle{
-            @include text(#000000, 16px, $font-Scada);
-            padding: 0 30px;
+        .featured-works {
+            .featured-works__title {
+                span {
+                    border-bottom: none;
+                }
+                strong {
+                    @include bottom-border(5px, $color-green);
+                }
+            }
+        } 
+    }
+    footer {
+        .social-img {
+            img {
+                height: 30px;
+            }
         }
     }
 }
